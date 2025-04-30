@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   matriculaai-backend:
     image: ghcr.io/isaacmsl/matriculaai-backend:latest
