@@ -2,18 +2,14 @@ version: '3.8'
 
 services:
   matriculaai-backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/isaacmsl/matriculaai-backend:latest
     networks:
       - matriculaai-network
     env_file:
       .env-backend
   
   matriculaai-frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ghcr.io/isaacmsl/matriculaai-frontend:latest
     networks:
       - matriculaai-network
     env_file:
