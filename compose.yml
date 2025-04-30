@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  matriculaai-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    networks:
+      - matriculaai-network
+    env_file:
+      .env-backend
+  
+  matriculaai-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    networks:
+      - matriculaai-network
+    env_file:
+      .env-frontend
+    ports:
+      - "8080:80"
+
+networks:
+  matriculaai-network:
+    name: matriculaai-network
+    driver: bridge
