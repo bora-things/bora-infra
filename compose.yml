@@ -20,3 +20,7 @@ networks:
   matriculaai-network:
     name: matriculaai-network
     driver: bridge
+  infra-network:
+    name: infra-network
+    driver: bridge
+    external: true
