@@ -3,6 +3,7 @@ services:
     image: ghcr.io/isaacmsl/matriculaai-backend:latest
     networks:
       - matriculaai-network
+      - infra-network
     env_file:
       .env-backend
   
