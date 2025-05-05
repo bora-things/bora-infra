@@ -11,8 +11,6 @@ services:
     image: ghcr.io/isaacmsl/matriculaai-frontend:latest
     networks:
       - matriculaai-network
-    env_file:
-      .env-frontend
     ports:
       - "8080:80"
 
