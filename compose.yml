@@ -1,24 +1,35 @@
 services:
-  matriculaai-gateway:
-    image: ghcr.io/isaacmsl/matriculaai-gateway:latest
-    networks:
-      - matriculaai-network
+  # matriculaai-gateway:
+  #   image: ghcr.io/isaacmsl/matriculaai-gateway:latest
+  #   networks:
+  #     - matriculaai-network
+  #   ports:
+  #     - "8080:8083"
+  #   depends_on:
+  #     - matriculaai-backend
+  #     - matriculaai-frontend
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf
     ports:
-      - "8080:8083"
-    depends_on:
-      - matriculaai-backend
-      - matriculaai-frontend
+      - "80:80"
+      - "443:443"
 
   matriculaai-backend:
     image: ghcr.io/isaacmsl/matriculaai-backend:latest
     networks:
       - matriculaai-network
       - infra-network
+    ports:
+      - "8081:8080"
     env_file:
       .env-backend
   
   matriculaai-frontend:
     image: ghcr.io/isaacmsl/matriculaai-frontend:latest
+    ports:
+      - "8082:8081"
     networks:
       - matriculaai-network
 
